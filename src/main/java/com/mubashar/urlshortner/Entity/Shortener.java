@@ -5,7 +5,7 @@ import lombok.*;
 
 
 @Entity
-@Table(name = "short_url")
+@Table(name = "shortener")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,9 +17,15 @@ public class Shortener {
     private Long id;
 
    @Column(nullable = false,length = 2048)
-    private String originalURl ;
+    private String originalUrl ;
 
     @Column(nullable = false , unique = true)
-    private String shortUrl;
+    private String shortCode;
 
+
+    public Shortener(String shortcode, String originalUrl) {
+        this.shortCode = shortcode;
+        this.originalUrl = originalUrl;
+
+    }
 }
