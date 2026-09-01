@@ -16,16 +16,19 @@ public class Shortener {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-   @Column(nullable = false,length = 2048)
-    private String originalUrl ;
+    @Column(nullable = false, length = 2048)
+    private String originalURl;
 
-    @Column(nullable = false , unique = true)
+    @Column(nullable = false, unique = true)
     private String shortCode;
+
+    @Column(nullable = false)
+    Long countClicks = 0L;
 
 
     public Shortener(String shortcode, String originalUrl) {
         this.shortCode = shortcode;
-        this.originalUrl = originalUrl;
+        this.originalURl = originalUrl;
 
     }
 }
